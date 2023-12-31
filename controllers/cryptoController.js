@@ -62,7 +62,7 @@ const getSupportedCurrencies = async (req, res) => {
 const convertCurrencies = async (req, res) => {
     const { sourceCrypto, amount, targetCurrency } = req.body;
 
-    if (!sourceCrypto.trim() || !amount.trim() || !targetCurrency.trim()) {
+    if (!sourceCrypto || !amount || !targetCurrency) {
         return res.status(400).json({ error: 'fields should not be empty.' });
     }
 

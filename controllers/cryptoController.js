@@ -62,6 +62,10 @@ const getSupportedCurrencies = async (req, res) => {
 const convertCurrencies = async (req, res) => {
     const { sourceCrypto, amount, targetCurrency } = req.body;
 
+    if (!sourceCrypto.trim() || !amount.trim() || !targetCurrency.trim()) {
+        return res.status(400).json({ error: 'Bad Request. fields should not be empty.' });
+    }
+
     try {
         const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
             params: {

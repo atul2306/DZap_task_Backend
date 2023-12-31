@@ -3,11 +3,11 @@ const axios = require('axios');
 // Utility function to wait for a specified duration
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-/**
- * Fetches a list of top cryptocurrencies based on market cap in USD.
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- */
+// /**
+//  * Fetches a list of top cryptocurrencies based on market cap in USD.
+//  * @param {Object} req - Express request object
+//  * @param {Object} res - Express response object
+//  */
 
 const getCryptoCurrencies = async (req, res) => {
     try {
@@ -42,11 +42,11 @@ const getCryptoCurrencies = async (req, res) => {
     }
 };
 
-/**
- * Fetches a list of supported vs_currencies from the CoinGecko API.
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- */
+// /**
+//  * Fetches a list of supported vs_currencies from the CoinGecko API.
+//  * @param {Object} req - Express request object
+//  * @param {Object} res - Express response object
+//  */
 
 const getSupportedCurrencies = async (req, res) => {
     try {
@@ -70,11 +70,11 @@ const getSupportedCurrencies = async (req, res) => {
 };
 
 
-/**
- * Converts a specified amount from a source cryptocurrency to a target currency.
- * @param {Object} req - Express request object with body containing sourceCrypto, amount, and targetCurrency
- * @param {Object} res - Express response object
- */
+// /**
+//  * Converts a specified amount from a source cryptocurrency to a target currency.
+//  * @param {Object} req - Express request object with body containing sourceCrypto, amount, and targetCurrency
+//  * @param {Object} res - Express response object
+//  */
 
 const convertCurrencies = async (req, res) => {
     const { sourceCrypto, amount, targetCurrency } = req.body;

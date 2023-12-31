@@ -63,7 +63,12 @@ const convertCurrencies = async (req, res) => {
     const { sourceCrypto, amount, targetCurrency } = req.body;
 
     if (!sourceCrypto.trim() || !amount.trim() || !targetCurrency.trim()) {
-        return res.status(400).json({ error: 'Bad Request. fields should not be empty.' });
+        return res.status(400).json({ error: 'fields should not be empty.' });
+    }
+
+    const numericAmount = parseFloat(amount);
+    if (isNaN(numericAmount) || numericAmount < 0) {
+        return res.status(400).json({ error: ' amount should be a non-negative number.' });
     }
 
     try {
